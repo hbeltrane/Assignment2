@@ -2,7 +2,6 @@
 <html>
 
 <head>
-    <meta charset="ISO-8859-1">
     <title>Insert title here</title>
     <link href="css/styles.css" rel="stylesheet" type="text/css">
 </head>
@@ -18,7 +17,7 @@
 	                    <label for="round">Round trip</label>
 	                </td>
 	                <td>
-	                    <input type="checkbox" name="from" required>
+	                    <input type="checkbox" name="round">
 	                </td>
 	            </tr>
 	            <tr>
@@ -27,15 +26,21 @@
 	                </td>
 	                <td>
 	                    <select name="from">
-	                        <option value="toronto">Toronto</option>
+	                        <option value="Colombia">Colombia</option>
+	                        <option value="Dominican Republic">Dominican Republic</option>
+	                        <option value="New Delhi">New Delhi</option>
+	                        <option value="Toronto">Toronto</option>
 	                    </select>
 	                </td>
 	                <td>
-	                    <label for="to">To: </label>
+	                    <label for="to" required>To: </label>
 	                </td>
 	                <td>
 	                    <select name="to">
-	                        <option value="toronto">Toronto</option>
+	                        <option value="Colombia">Colombia</option>
+	                        <option value="Dominican Republic">Dominican Republic</option>
+	                        <option value="New Delhi">New Delhi</option>
+	                        <option value="Toronto">Toronto</option>
 	                    </select>
 	                </td>
 	            </tr>
@@ -53,8 +58,31 @@
 	                    <input type="date" name="return" required>
 	                </td>
 	            </tr>
+	            <tr>
+	                <td>
+	                    <label for="passengers">Passengers: </label>
+	                </td>
+	                <td>
+	                    <select name="passengers">
+	                        <option value="1">1</option>
+	                        <option value="2">2</option>
+	                        <option value="3">3</option>
+	                        <option value="4">4</option>
+	                    </select>
+	                </td>
+	                <td>
+	                    <label for="class">Class: </label>
+	                </td>
+	                <td>
+	                    <select name="class">
+	                        <option value="Economy">Economy</option>
+	                        <option value="Business">Business</option>
+	                        <option value="First class">First class</option>
+	                    </select>
+	                </td>
+	            </tr>
 	        </table>
-            <input type="submit" value="Search">
+	        <input type="submit" value="Book flight">
         </form>
     </div>
     <script src="script.js"></script>
