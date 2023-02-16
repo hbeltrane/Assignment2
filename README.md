@@ -209,7 +209,7 @@ git pull
 ### push
 Update remote refs along with associated objects
 ```shell
-git push
+git push <Repository Name> <Branch Name>
 ```
 
 ## _Inspection and Comparison_
