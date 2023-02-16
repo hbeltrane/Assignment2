@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="container">
+        <form action="Result" method="get" onsubmit="return FormValidation();" onchange="return FormValidation();">
+	        <table>
+	            <tr>
+	                <td></td>
+	                <td></td>
+	                <td>
+	                    <label for="round">Round trip</label>
+	                </td>
+	                <td>
+	                    <input type="checkbox" name="from" required>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>
+	                    <label for="from">From: </label>
+	                </td>
+	                <td>
+	                    <select name="from">
+	                        <option value="toronto">Toronto</option>
+	                    </select>
+	                </td>
+	                <td>
+	                    <label for="to">To: </label>
+	                </td>
+	                <td>
+	                    <select name="to">
+	                        <option value="toronto">Toronto</option>
+	                    </select>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>
+	                    <label for="depart">Depart: </label>
+	                </td>
+	                <td>
+	                    <input type="date" name="depart" required>
+	                </td>
+	                <td>
+	                    <label for="return">Return: </label>
+	                </td>
+	                <td>
+	                    <input type="date" name="return" required>
+	                </td>
+	            </tr>
+	        </table>
+            <input type="submit" value="Search">
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
