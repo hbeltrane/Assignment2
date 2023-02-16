@@ -162,6 +162,10 @@ git branch
 git branch <branch name>
 ```
 
+```shell
+git branch --delete <branch name>
+```
+
 ### switch
 Switch branches
 ```shell
