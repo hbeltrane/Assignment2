@@ -35,15 +35,19 @@ public class Result extends HttpServlet {
         String depart=request.getParameter("depart");
         String ret=request.getParameter("return");
         // Double gpa=Double.parseDouble(request.getParameter("email"));
-        //String sdate = request.getParameter("dob");
-        out.println("<table>");
-        out.println("<tr><td>");
-        out.println("Your flight from "+from+" to "+to+"</td></tr>");
-        out.println("<tr><td>");
-        out.println("Departs at "+depart+" and returns at "+ret+"</td></tr>");
+        // String sdate = request.getParameter("dob");
+        // out.println("<table>");
+        // out.println("<tr><td>");
+        // out.println("Your flight from "+from+" to "+to+"</td></tr>");
+        // out.println("<tr><td>");
+        // out.println("Departs at "+depart+" and returns at "+ret+"</td></tr>");
         //out.println("<tr><td>Resume :</td><td>"+resume+"</td></tr>");
-        //out.println("<tr><td>DOB :</td><td>"+sdate+"</td></tr>");
-        out.println("</table>");
+        // out.println("<tr><td>DOB :</td><td>"+sdate+"</td></tr>");
+        // out.println("</table>");
+
+        String message = "from: " + from + " to: " + to;
+        request.setAttribute("message", message); // This will be available as ${message}
+        request.getRequestDispatcher("/WEB-INF/result.jsp").forward(request, response);
 	}
 
 	/**
