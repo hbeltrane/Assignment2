@@ -30,18 +30,19 @@ public class Result extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
         PrintWriter out=response.getWriter();
-        String unm=request.getParameter("uname");
-        String pwd=request.getParameter("password");
-        String email=request.getParameter("email");
+        String from=request.getParameter("from");
+        String to=request.getParameter("to");
+        String depart=request.getParameter("depart");
+        String ret=request.getParameter("return");
         // Double gpa=Double.parseDouble(request.getParameter("email"));
-        String sdate = request.getParameter("dob");
+        //String sdate = request.getParameter("dob");
         out.println("<table>");
         out.println("<tr><td>");
-        out.println("User Name :</td><td>"+unm+"</td></tr>");
+        out.println("Your flight from "+from+" to "+to+"</td></tr>");
         out.println("<tr><td>");
-        out.println("email :</td><td>"+email+"</td></tr>");
+        out.println("Departs at "+depart+" and returns at "+ret+"</td></tr>");
         //out.println("<tr><td>Resume :</td><td>"+resume+"</td></tr>");
-        out.println("<tr><td>DOB :</td><td>"+sdate+"</td></tr>");
+        //out.println("<tr><td>DOB :</td><td>"+sdate+"</td></tr>");
         out.println("</table>");
 	}
 
