@@ -2,13 +2,14 @@
 <html>
 
 <head>
-    <title>Insert title here</title>
+    <title>Book your flight</title>
     <link href="css/styles.css" rel="stylesheet" type="text/css">
+	<script defer src="js/script.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <form action="Result" method="get" onsubmit="return FormValidation();" onchange="return FormValidation();">
+        <form action="Result" method="GET">
 	        <table>
 	            <tr>
 	                <td></td>
@@ -25,11 +26,13 @@
 	                    <label for="from">From: </label>
 	                </td>
 	                <td>
-	                    <select name="from">
-	                        <option value="Colombia">Colombia</option>
-	                        <option value="Dominican Republic">Dominican Republic</option>
-	                        <option value="New Delhi">New Delhi</option>
-	                        <option value="Toronto">Toronto</option>
+	                    <select name="from">												
+												<option value="">choose an option</option>												
+												<option value="Canada">Canada</option>
+	                      <option value="Colombia">Colombia</option>
+	                      <option value="Dominican Republic">Dominican Republic</option>
+	                      <option value="New Delhi">New Delhi</option>
+	                      <option value="Toronto">Toronto</option>
 	                    </select>
 	                </td>
 	                <td>
@@ -37,10 +40,12 @@
 	                </td>
 	                <td>
 	                    <select name="to">
-	                        <option value="Colombia">Colombia</option>
-	                        <option value="Dominican Republic">Dominican Republic</option>
-	                        <option value="New Delhi">New Delhi</option>
-	                        <option value="Toronto">Toronto</option>
+												<option value="">choose an option</option>												
+												<option value="Canada">Canada</option>
+	                      <option value="Colombia">Colombia</option>
+	                      <option value="Dominican Republic">Dominican Republic</option>
+	                      <option value="New Delhi">New Delhi</option>
+	                      <option value="Toronto">Toronto</option>
 	                    </select>
 	                </td>
 	            </tr>
@@ -55,7 +60,7 @@
 	                    <label for="return">Return: </label>
 	                </td>
 	                <td>
-	                    <input type="date" name="return" required>
+	                    <input type="date" name="return">
 	                </td>
 	            </tr>
 	            <tr>
@@ -85,7 +90,6 @@
 	        <input type="submit" value="Book flight">
         </form>
     </div>
-    <script src="script.js"></script>
 </body>
 
 </html>

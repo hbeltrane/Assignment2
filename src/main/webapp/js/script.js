@@ -1,28 +1,54 @@
 /**
 *
 */
-function FormValidation() {
-    //First Name Validation
-    var fn = document.getElementById('firstname').value;
-    if (fn == "") {
-        alert('Please Enter First Name');
-        document.getElementById('firstname').style.borderColor = "red";
-        return false;
-    } else {
-        document.getElementById('firstname').style.borderColor = "green";
-    }
-    if (/^[0-9]+$/.test(document.getElementById("firstname").value)) {
-        alert("First Name Contains Numbers!");
-        document.getElementById('firstname').style.borderColor = "red";
-        return false;
-    } else {
-        document.getElementById('firstname').style.borderColor = "green";
-    }
-    if (fn.length <= 2) {
-        alert('Your Name is To Short');
-        document.getElementById('firstname').style.borderColor = "red";
-        return false;
-    } else {
-        document.getElementById('firstname').style.borderColor = "green";
-    }
+const getDate = function(input) {
+    const inputDate = document.querySelector(input);
+    return new Date(inputDate.value); 
 }
+
+const isValidDepartDate = function() {
+    let departDate = getDate("input[name=depart]");
+    let today = new Date();
+    return departDate > today;
+ }
+
+ const isValidReturnDate = function() {
+    let returnDate = getDate("input[name=return]");
+    let departDate = getDate("input[name=depart]");
+    return returnDate > departDate
+ }
+
+const isRoundTrip = function() {
+    const roundChk = document.querySelector("input[name=round]");
+    return roundChk.checked;
+}
+
+function dateValidation () {
+    if (!isValidDepartDate()) {
+        alert('Please choose a valid date');
+        return false;
+    }
+    if (isRoundTrip() && !isValidReturnDate()) {
+        alert('Please choose a valid date');
+        return false;
+    }
+    return true;
+}
+
+function FormValidation() {
+    let destination = document.querySelector("select[name=to]");
+    if(isRoundTrip() && destination.value == "") {
+        alert('Please select a destination');
+        destination.style.borderColor = "red";
+        return false;
+    }
+    
+    return true
+}
+
+document.querySelector("form").onsubmit = function() {
+    if (!(dateValidation())){
+        return false;
+    }
+    return FormValidation();
+};

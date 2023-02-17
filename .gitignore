@@ -1,0 +1,19 @@
+# InteliJ
+## Directories
+.idea/libraries/
+.idea/shelf
+out/
+
+## Files
+
+.idea/workspace.xml
+.idea/usage.statistics.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/tasks.xml
+.iml
+.iws
+
+# Visual Studio Code
+/src/main/webapp/Assignment2.code-workspace
+

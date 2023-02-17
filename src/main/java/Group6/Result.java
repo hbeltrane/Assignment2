@@ -47,7 +47,7 @@ public class Result extends HttpServlet {
 
         String message = "from: " + from + " to: " + to;
         request.setAttribute("message", message); // This will be available as ${message}
-        request.getRequestDispatcher("/WEB-INF/result.jsp").forward(request, response);
+        request.getRequestDispatcher("/result.jsp").forward(request, response);
 	}
 
 	/**
