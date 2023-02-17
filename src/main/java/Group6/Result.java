@@ -45,9 +45,21 @@ public class Result extends HttpServlet {
         // out.println("<tr><td>DOB :</td><td>"+sdate+"</td></tr>");
         // out.println("</table>");
 
-        String message = "from: " + from + " to: " + to;
-        request.setAttribute("message", message); // This will be available as ${message}
-        request.getRequestDispatcher("/result.jsp").forward(request, response);
+        //String message = "from: " + from + " to: " + to;
+        //request.setAttribute("message", message); // This will be available as ${message}
+        //request.getRequestDispatcher("/result.jsp").forward(request, response);
+        out.println("<body style='padding: 50px; background-color: lightblue; font-family: Arial, Helvetica, sans-serif; font-size: 16px;'>");
+        out.println("<div style='padding: 50px; background-color: navy; width: 50%; margin: 0 auto;'>");
+        out.println("<p style='color: white; text-align: center'>");
+        out.println("Your flight from "+from+" to "+to+"</p>");
+        out.println("<p style='color: white; text-align: center'>");
+        if(ret != "") {
+            out.println("Departs at "+depart+" and returns at "+ret+"</p>");
+        }
+        else {
+        	out.println("Departs at "+depart+"</p>");
+        }
+        out.println("</div></body>");
 	}
 
 	/**
