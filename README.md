@@ -55,7 +55,7 @@ git config --global
 git config --global user.name "<Your Name>"
 ```
 ```shell
-git config --global user.email "<Your Email>"
+git config --global user.email "<your email>"
 ```
 ## _Getting and Creating Projects_
 
@@ -66,9 +66,9 @@ git init
 ```
 
 ### clone
-Clone a repository into a new directory
+Copy a remote repository into a local directory
 ```shell
-git clone
+git clone <repository URL>
 ```
 
 ## _Basic Snapshotting_
@@ -76,7 +76,7 @@ git clone
 ### add
 Add file contents to the index (Staging)
 ```shell
-git add <File Name>
+git add <file name>
 ```
 Add all files contents to the index
 ```shell
@@ -101,9 +101,11 @@ Add current changes to the last commit
 ```shell
 git commit --amend
 ```
+Add current changes to the last commit using same comment
 ```shell
-git commit -amend --no-edit
+git commit --amend --no-edit
 ```
+Add current changes to the last commit with a new comment
 ```shell
 git commit -amend -m "New commit message"
 ```
@@ -121,7 +123,7 @@ git log --oneline
 ### restore
 Restore working tree files
 ```shell
-git restore <File Name>
+git restore <file name>
 ```
 Restore current directory
 ```shell
@@ -129,45 +131,56 @@ git restore .
 ```
 Restore file from staging area
 ```shell
-git restore --staged <File Name>
+git restore --staged <file name>
 ```
 
 ### reset
 Reset current HEAD to the specified state
 ```shell
-git reset <Commit Hash>
+git reset <commit hash>
 ```
 
 ### rm
 Remove files from the working tree and from the index
 ```shell
-git rm  <File Name>
+git rm  <file name>
 ```
 
 ### mv
 Move or rename a file, a directory, or a symlink
 ```shell
-git mv  <File Name> <New File Name>
+git mv  <file name> <new file name>
 ```
 
 ## _Branching and Merging_
 
 ### branch
-List, create, or delete branches
+List branches
 ```shell
 git branch 
 ```
-
+Create branch
 ```shell
 git branch <branch name>
 ```
-
+Connect a local branch to a branch in a remote repository
+```shell
+git branch --set-upstream-to <repository name> <branch name>
+```
+```shell
+git branch -u <repository name> <branch name>
+```
+Delete branch
 ```shell
 git branch --delete <branch name>
 ```
 
 ### switch
 Switch branches
+```shell
+git switch <branch name>
+```
+Create and switch to new branch
 ```shell
 git switch -c <branch name>
 ```
@@ -189,23 +202,50 @@ Stash the changes in a dirty working directory away
 ```shell
 git stash
 ```
+Show changes has been stashed
+```shell
+git stash list
+```
+Apply specified changes to working directory
+```shell
+git stash apply <list index number>
+```
+Delete the last element in the stash list and brings it to the working directory
+```shell
+git stash pop
+```
 
 ## _Sharing and Updating Projects_
 
 ### remote
-Manage set of tracked repositories
+Connect a local repository to a remote repository
 ```shell
-git remote
+git remote add <alias name> <repository URL>
+```
+Remove a reference to remote repository
+```shell
+git remote remove <name>
+```
+Rename a remote repository
+```shell
+git remote rename <name> <new name>
+```
+List all tracked remote repositories
+```shell
+git remote --verbose
+```
+```shell
+git remote -v
 ```
 
 ### fetch
-Download objects and refs from another repository
+Synchronized objects and refs from remote repository to local
 ```shell
 git fetch
 ```
 
 ### pull
-Fetch from and integrate with another repository or a local branch
+Fetch from and merge with remote repository and local branch
 ```shell
 git pull
 ```
@@ -213,7 +253,18 @@ git pull
 ### push
 Update remote refs along with associated objects
 ```shell
-git push <Repository Name> <Branch Name>
+git push --set-upstream-to <repository name> <branch name>
+```
+```shell
+git push -u <repository name> <branch name>
+```
+Send files from local directory to cloud repository
+```shell
+git push <repository name> <branch name>
+```
+Move all local branches to remote
+```shell
+git push --all
 ```
 
 ## _Inspection and Comparison_
@@ -240,7 +291,6 @@ Reapply commits on top of another base tip
 ```shell
 git rebase --interactive <Commit Hash>
 ```
-
 ```shell
 git rebase --interactive <Branch Name>
 ```
@@ -261,6 +311,12 @@ git revert
 ```
 
 ## Git Workflow
+These are the four fundamental elements that composed the Git workflow:
+* Workspace (Working Directory)
+* Staging (Index)
+* Local Repository (Head)
+* Remote Repository
+
 ![Git Workflow with commands](src/main/webapp/images/git-workflow.jpeg)
 Git Workflow with commands.
 
@@ -273,3 +329,11 @@ Imagine you have one developer who is working on a new feature. And another deve
 To avoid this, the two developers can create two separate branches from the master branch and work on their features individually. When they’re done with their feature, they can then merge their respective branch to the master branch, and deploy without having to wait for the second feature to be completed.
 
 The Pros of using this workflow is, the git feature branch workflow allows you to collaborate on code and minimize code conflicts.
+
+
+### How to do it
+
+* You create a new branch, that's usually a feature or a fix branch. 
+* You make changes to that branch. 
+* Then you merge that branch back to master, and then 
+* you delete the old branch.
